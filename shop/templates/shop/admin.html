@@ -1,0 +1,43 @@
+{% extends "shop/base.html" %}
+
+{% block title %}
+    Admin
+{% endblock %}
+
+{% block content %}
+<style>
+    table th {
+        color: black;
+    }
+</style>
+
+<div class="container">
+    <h2 class="text-center my-4">Admin</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Product</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Price</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Remove</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+            <tr>
+                <td>{{ product.name }}</td>
+                <td>{{ product.quantity }}</td>
+                <td>${{ product.price }}</td>
+                <td><button class="btn btn-secondary" disabled>Edit</button></td>
+                <td><button class="btn btn-danger" disabled>Delete</button></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="text-end">
+        <button class="btn btn-primary" disabled>Add</button>
+    </div>
+</div>
+{% endblock %}
