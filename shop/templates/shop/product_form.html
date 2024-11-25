@@ -12,6 +12,7 @@
             {% csrf_token %}
             {{ form|crispy }}
             <button type="submit" class="btn btn-primary">Add Product</button>
+            <a href="{% url 'shop:admin_page' %}" class="btn btn-secondary">Cancel</a>
         </form>
     {% else %}
         <p>You do not have permission to add a product.</p>

@@ -7,6 +7,10 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import user_passes_test  # Import for admin check
+from django.contrib import messages
+from django.shortcuts import redirect
+from django.views.generic.edit import DeleteView
+
 
 
 @user_passes_test(lambda u: u.is_superuser)  # Ensure only superusers can access this page
@@ -73,3 +77,8 @@ class ProductCreateView(CreateView):
     fields = ['name', 'description', 'category', 'image', 'price', 'quantity']
     template_name = 'shop/product_form.html'
     success_url = reverse_lazy('shop:product_list')
+
+class ProductDeleteView(DeleteView):
+    model = Product
+    template_name = 'shop/product_delete.html'
+    success_url = reverse_lazy('shop:admin_page')

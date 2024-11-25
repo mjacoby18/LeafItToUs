@@ -48,7 +48,6 @@
                     </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{% url 'shop:admin_page' %}">Admin Product View</a></li>
-                            <li><a class="dropdown-item" href="{% url 'shop:product_create' %}">Add New Product</a></li>
                         </ul>
                     </li>
                 {% endif %}
@@ -68,6 +67,7 @@
                  {% csrf_token %}
                  <button type="submit">Log out</button>
               </form>
+
            </li>
         {% else %}
             <li><a class="nav-link" href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span>Login</a>
