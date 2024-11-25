@@ -123,3 +123,4 @@ SERVER_EMAIL = 'isqa3900group6@gmail.com'
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
+LOGIN_REDIRECT_URL = '/'  # Redirect to the home page or any desired page
