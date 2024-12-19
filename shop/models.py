@@ -32,7 +32,7 @@ class Product(models.Model):
     class Meta:
         ordering = ('name',)
         indexes = [
-            models.Index(fields=['id', 'slug']),
+            models.Index(fields=['id', 'slug'], name='product_id_slug_idx')  # Add name attribute here
         ]
 
     def __str__(self):

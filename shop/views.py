@@ -4,7 +4,7 @@ from cart.forms import CartAddProductForm
 from cart.cart import Cart
 from orders.models import Order  # Import Order from orders.models
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import user_passes_test  # Import for admin check
 from django.contrib import messages
@@ -77,6 +77,12 @@ class ProductCreateView(CreateView):
     fields = ['name', 'description', 'category', 'image', 'price', 'quantity']
     template_name = 'shop/product_form.html'
     success_url = reverse_lazy('shop:product_list')
+
+class ProductUpdateView(UpdateView):
+    model = Product
+    fields = ['name', 'description', 'category', 'image', 'price', 'quantity']
+    template_name = 'shop/product_edit.html'
+    success_url = reverse_lazy('shop:admin_page')
 
 class ProductDeleteView(DeleteView):
     model = Product

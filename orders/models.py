@@ -3,7 +3,7 @@ from shop.models import Product
 from django.contrib.auth.models import User
 
 class Order(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     email = models.EmailField()
